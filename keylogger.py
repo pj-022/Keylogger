@@ -2,6 +2,8 @@
 
 # Keylogger created by pj-022
 
+# All the changes you need to make are on line 34, 49, 135.
+
 # For this to work you have to enable the 'less secure apps' function on the email you want to use in keylogger
 # You can search that in security settings of your gmail account
 
