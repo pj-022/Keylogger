@@ -12,4 +12,4 @@ The command of pyinstaller require to use for this file is as:<br />
 __Ignore the @. these are just to distinguish__<br />
 'location of file' = location of file you want that to turn with extension.<br />
 'location of icon' = location of icon you want to add to file with '.ico' extension.<br />
-And in line 41 you have to add the name of file you added in pyinstaller. Eg:- 'image.jpg' or 'example.pdf' or anything like that
+And in line 40 you have to add the name of file you added in pyinstaller. Eg:- 'image.jpg' or 'example.pdf' or anything like that
